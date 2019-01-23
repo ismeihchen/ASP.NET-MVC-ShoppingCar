@@ -1,0 +1,106 @@
+﻿@model prjShoppingCar.Models.tOrderViewModel
+
+@{
+    ViewBag.Title = "訂單明細";
+}
+
+<h2>訂單明細</h2>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">訂單資料</div>
+    <div class="panel-body">
+        <div class="form-horizontal">
+
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.tOrderData.fUserId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.tOrderData.fReceiver)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.tOrderData.fTotalPrice)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.tOrderData.fEmail)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.tOrderData.fAddress)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.tOrderData.fDate)
+                    </th>                 
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => model.tOrderData.fUserId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.tOrderData.fReceiver)
+                    </td>
+                    <td>
+                        NT$ @String.Format("{0:0,0}", Model.tOrderData.fTotalPrice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.tOrderData.fEmail)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.tOrderData.fAddress)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.tOrderData.fDate)
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">訂單明細</div>
+    <div class="panel-body">
+        <div class="form-horizontal">
+
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.tOrderDetailsData.FirstOrDefault().fName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.tOrderDetailsData.FirstOrDefault().fPrice)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.tOrderDetailsData.FirstOrDefault().fQty)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.tOrderDetailsData.FirstOrDefault().fAmount)
+                    </th>
+                </tr>
+
+                @foreach (var item in Model.tOrderDetailsData)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.fName)
+                        </td>
+                        <td>
+                            NT$ @String.Format("{0:0,0}", item.fPrice)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.fQty)
+                        </td>
+                        <td>
+                            NT$ @String.Format("{0:0,0}", item.fAmount)
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>
+
+<input type="button" value="返回會員訂單列表" class="btn btn-primary"
+       onclick="location.href = '@Url.Action("OrderList","Order")';" />

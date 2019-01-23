@@ -1,0 +1,111 @@
+﻿@model IEnumerable<prjShoppingCar.Models.tOrderDetail>
+
+@{
+    ViewBag.Title = "會員購物車清單";
+}
+
+<h2>會員購物車清單</h2>
+
+@* 購物車Js *@
+<script type="text/javascript">
+        //網頁載入完成時執行之function
+        $(document).ready(function () {
+            console.log("ready!");
+        });
+
+        //變更商品數量
+    function UpdateFromCart(sel,fId) {
+        var productQty = sel.value;
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("UpdateCar")',
+                data: { fId: fId, fQty: productQty }
+            })
+      location.reload();
+    }
+
+</script>
+
+<table class="table">
+    <tr>       
+        <th>
+            @Html.DisplayNameFor(model => model.fPId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fQty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fAmount)
+        </th>
+        <th></th>
+    </tr>
+
+    @{ int subTotal = 0; }
+    @foreach (var item in Model)
+    {
+
+        // 計算購買商品總價
+        subTotal += item.fAmount;
+
+        // 選擇商品數量的選單只能選擇 1 ~ 9
+        var ddlQtyList = new SelectList(Enumerable.Range(1, 9), item.fQty);
+
+        <tr>           
+            <td>
+                @Html.DisplayFor(modelItem => item.fPId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fName)
+            </td>
+            <td>
+                NT$ @String.Format("{0:0,0}", item.fPrice)
+            </td>
+            <td>
+                @Html.DropDownListFor(modelItem => item.fQty, ddlQtyList, new { onchange = "UpdateFromCart(this," + @item.fId + ");" })
+            </td>
+            <td>NT$ @String.Format("{0:0,0}", item.fAmount)</td>
+            <td>
+                <a href="@Url.Action("DeleteCar")?fId=@item.fId" class="btn btn-danger">刪除購物車</a>
+            </td>
+        </tr>
+    }
+
+    @if (subTotal > 0)
+    {
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+
+            <td>總價</td>
+            <td id="subtotal">NT$ @String.Format("{0:0,0}", subTotal)</td>
+            <td></td>
+        </tr>
+    }
+</table>
+
+    @if (subTotal > 0)
+    {
+        <form action="@Url.Action("ShoppingCar")" method="post">
+
+            <div class="form-group">
+                <div style="text-align:center;" class="col-md-offset-2 col-md-10">
+                    <input type="button" value="確認訂購" class="btn btn-primary"
+                           onclick="location.href = '@Url.Action("Complete","Order")';" />
+                    <p></p><p></p>
+                </div>
+            </div>
+        </form>
+    }
+    else
+    {        
+        <input type="button" value="購物車無任何商品" class="btn btn-primary"
+               onclick="location.href = '@Url.Action("Index","Home")';" />
+    }
+

@@ -1,0 +1,123 @@
+﻿@model prjShoppingCar.Models.tOrderViewModel
+
+@{
+    ViewBag.Title = "訂單完成";
+    Layout = "~/Views/Shared/_LayoutMember.cshtml";
+}
+
+<div class="panel panel-primary">
+    <div class="panel-heading">訂購資料</div>
+    <div class="panel-body">
+        <div class="form-horizontal">
+
+            <table class="table">
+                <tr>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.tOrderDetailsData.FirstOrDefault().fName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.tOrderDetailsData.FirstOrDefault().fPrice)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.tOrderDetailsData.FirstOrDefault().fQty)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.tOrderDetailsData.FirstOrDefault().fAmount)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @{ int subTotal = 0; }
+                @foreach (var item in Model.tOrderDetailsData)
+                {
+
+                    // 計算購買商品總價
+                    subTotal += item.fAmount;
+
+                    // 選擇商品數量的選單只能選擇 1 ~ 9
+                    var ddlQtyList = new SelectList(Enumerable.Range(1, 9), item.fQty);
+
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.fName)
+                        </td>
+                        <td>
+                            NT$ @String.Format("{0:0,0}", item.fPrice)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.fQty)
+                        </td>
+                        <td>NT$ @String.Format("{0:0,0}", item.fAmount)</td>
+
+                    </tr>
+                }
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>總價</td>
+                    <td id="subtotal">NT$ @String.Format("{0:0,0}", subTotal)</td>
+
+                </tr>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">填寫訂單收件人資料</div>
+    <div class="panel-body">
+
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+
+            <div class="form-horizontal">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.tOrderData.fReceiver, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.tOrderData.fReceiver, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.tOrderData.fReceiver, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.tOrderData.fPhone, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.tOrderData.fPhone, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.tOrderData.fPhone, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.tOrderData.fAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.tOrderData.fAddress, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.tOrderData.fAddress, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.tOrderData.fEmail, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.tOrderData.fEmail, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.tOrderData.fEmail, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="完成訂單" class="btn btn-info" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
