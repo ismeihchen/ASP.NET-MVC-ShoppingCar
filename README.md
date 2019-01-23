@@ -39,7 +39,7 @@ ShoppingCar MVC 基礎購物車實作
 ![](https://raw.githubusercontent.com/ismeihchen/Image/master/Image/Image/PhotoCap_6_OrderDetail.jpg)
 
 *   專案檔案
-![](https://raw.githubusercontent.com/ismeihchen/Image/master/Image/Image/7_FILES_1.jpg)
+![](https://raw.githubusercontent.com/ismeihchen/Image/master/Image/Image/7_FILES_2.jpg)
 
 ##參考資料
 ------
