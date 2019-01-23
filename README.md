@@ -38,9 +38,16 @@ ShoppingCar MVC 基礎購物車實作
 *   訂單明細查詢
 ![](https://raw.githubusercontent.com/ismeihchen/Image/master/Image/Image/PhotoCap_6_OrderDetail.jpg)
 
+*   專案檔案
+![](https://raw.githubusercontent.com/ismeihchen/Image/master/Image/Image/7_FILES.jpg)
+
 ##參考資料
 ------
 
 *   跟著實務學習ASP.NET MVC：第一次寫MVC就上手(第9章-範例程式)[https://www.books.com.tw/products/0010776836](https://www.books.com.tw/products/0010776836)
 *   ASP.NET MVC 4 開發實戰(保哥)-範例程式[https://www.delightpress.com.tw/book.aspx?book\_id=SKNP00028](https://www.delightpress.com.tw/book.aspx?book_id=SKNP00028)
 *   買大(MaiDot)[https://maidot.blogspot.com/2014/10/aspnet-mvc-ajax.html](https://maidot.blogspot.com/2014/10/aspnet-mvc-ajax.html)
+
+##參考資料
+------
+
