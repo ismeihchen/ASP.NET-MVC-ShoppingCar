@@ -14,43 +14,28 @@ ShoppingCar MVC 基礎購物車實作
 ------
 
 *   註冊頁 
-=================================
 
 ![](https://raw.githubusercontent.com/ismeihchen/Image/master/Image/Image/PhotoCap_1_MemberRegister.jpg)
 
 *   登入頁，測試帳號：annychen，密碼：12345678
-=============================
-
 ![](https://raw.githubusercontent.com/ismeihchen/Image/master/Image/Image/PhotoCap_2_Login.jpg)
 
 *   商品首頁(未登入，無加入購物車按鈕)
-==================
-
 ![](https://raw.githubusercontent.com/ismeihchen/Image/master/Image/Image/PhotoCap_3_HomeIndex.jpg)
 
 *   商品首頁(登入後，才有加入購物車按鈕)
-===================
-
 ![](https://raw.githubusercontent.com/ismeihchen/Image/master/Image/Image/PhotoCap_3_HomeIndex_Login.jpg)
 
 *   購物車頁(刪除、更新數量)
-=============
-
 ![](https://raw.githubusercontent.com/ismeihchen/Image/master/Image/Image/PhotoCap_4_Car_1.jpg)
 
 *   填寫訂單收件人資料頁
-==========
-
 ![](https://raw.githubusercontent.com/ismeihchen/Image/master/Image/Image/PhotoCap_4_Car_2_Input.jpg)
 
 *   訂單列表查詢
-======
-
 ![](https://raw.githubusercontent.com/ismeihchen/Image/master/Image/Image/PhotoCap_5_OrderList.jpg)
 
 *   訂單明細查詢
-======
-
 ![](https://raw.githubusercontent.com/ismeihchen/Image/master/Image/Image/PhotoCap_6_OrderDetail.jpg)
 
 ##參考資料
