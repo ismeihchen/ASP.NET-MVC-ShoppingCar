@@ -17,8 +17,8 @@ ShoppingCar MVC 基礎購物車實作
 
 ![](https://raw.githubusercontent.com/ismeihchen/Image/master/Image/Image/PhotoCap_1_MemberRegister.jpg)
 
-*   登入頁，測試帳號：annychen，密碼：12345678
-![](https://raw.githubusercontent.com/ismeihchen/Image/master/Image/Image/PhotoCap_2_Login.jpg)
+*   登入頁，測試帳號：admin 密碼：12345678
+![](https://raw.githubusercontent.com/ismeihchen/Image/master/Image/Image/2_Login_2.jpg)
 
 *   商品首頁(未登入，無加入購物車按鈕)
 ![](https://raw.githubusercontent.com/ismeihchen/Image/master/Image/Image/PhotoCap_3_HomeIndex.jpg)
@@ -33,10 +33,10 @@ ShoppingCar MVC 基礎購物車實作
 ![](https://raw.githubusercontent.com/ismeihchen/Image/master/Image/Image/PhotoCap_4_Car_2_Input.jpg)
 
 *   訂單列表查詢
-![](https://raw.githubusercontent.com/ismeihchen/Image/master/Image/Image/PhotoCap_5_OrderList_1.jpg)
+![](https://raw.githubusercontent.com/ismeihchen/Image/master/Image/Image/5_OrderList_2.jpg)
 
 *   訂單明細查詢
-![](https://raw.githubusercontent.com/ismeihchen/Image/master/Image/Image/PhotoCap_6_OrderDetail.jpg)
+![](https://raw.githubusercontent.com/ismeihchen/Image/master/Image/Image/6_OrderDetail_2.jpg)
 
 *   專案檔案
 ![](https://raw.githubusercontent.com/ismeihchen/Image/master/Image/Image/7_FILES_2.jpg)
